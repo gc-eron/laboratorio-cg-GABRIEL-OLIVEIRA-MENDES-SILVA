@@ -10,7 +10,7 @@ k = st.slider("k", 1, 20, 4)
 y, x = np.indices((64, 64))
 
 def padrao(x, y, k):
-    return (x * k) % 256
+    return (x ^ y) * k  % 256
 
 imagem = padrao(x, y, k).astype(np.uint8)
 st.image(ampliar(imagem, 4))
